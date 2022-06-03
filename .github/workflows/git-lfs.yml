@@ -15,3 +15,11 @@ jobs:
       - run: git config -l
       - run: git lfs env
       - uses: actions/checkout@v3
+      - run: echo 'large file' >> large.txt
+      - run: git lfs track
+      - run: git lfs track '*.txt'
+      - run: git lfs track
+      - run: git lfs ls-files
+      - run: git add .
+      - run: git commit -m 'Large file'
+      - run: git push
