@@ -15,12 +15,12 @@ jobs:
       - run: git config -l
       - run: git lfs env
       - uses: actions/checkout@v3
-        with:
-          lfs: true
-      - run: git lfs fetch --all
       - run: git config -l --local
       - run: git lfs env
+      - run: git lfs fetch --all
+      - run: git lfs pull
       - run: cat large.txt
+      - run: rm large.txt
       - run: echo 'large file' >> large.txt
       - run: git lfs track
       - run: git lfs track '*.txt'
