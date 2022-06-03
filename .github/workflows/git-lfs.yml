@@ -1,0 +1,17 @@
+name: Git LFS
+
+on:
+  push:
+    paths:
+      - .github/workflows/git-lfs.yml
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - run: git config -l
+      - run: git lfs env
+      - uses: actions/checkout@v3
