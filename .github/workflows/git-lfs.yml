@@ -15,6 +15,8 @@ jobs:
       - run: git config -l
       - run: git lfs env
       - uses: actions/checkout@v3
+        with:
+          lfs: true
       - run: cat large.txt
       - run: echo 'large file' >> large.txt
       - run: git lfs track
